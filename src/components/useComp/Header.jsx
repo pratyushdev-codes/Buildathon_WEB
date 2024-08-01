@@ -26,7 +26,7 @@ const Header = () => {
     </div>
 
 
-    <div className="mt-8 gap-3 flex justify-center">
+    <div className="mt-8 gap-3 flex justify-center" onClick={window.location.href="/google-auth"}>
       <a className="inline-flex justify-center items-center gap-x-3 text-center bg-gradient-to-tl from-blue-600 to-violet-600 hover:from-violet-600 hover:to-blue-600 border border-transparent text-white text-sm font-medium rounded-full py-3 px-4 dark:focus:ring-offset-gray-800" href="#">
       <img src="../../../public/images/google.png" style={{width:"30px", height:"30px"}}/>
         Continue with Google 
