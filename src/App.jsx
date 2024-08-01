@@ -1,57 +1,41 @@
-
-
-import './App.css'
-import Features from './components/useComp/Features'
-import Header from './components/useComp/Header'
-import Hero from './components/useComp/Hero'
-import { AnimatedListDemo } from './components/useComp/lists'
-import MainHeader from './components/useComp/MainHeader'
-import Navbar from './components/useComp/Navbar'
+import React from 'react';
+import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { TrainModel } from './components/useComp/TrainModel'
+import { Toaster } from 'react-hot-toast';
+import { TrainModel } from './components/useComp/TrainModel';
+import RealMain from './components/useComp/RealMain';
 
-
-
-
-
-
+import dataTransfer from './components/useComp/uploadDataset';
 function App() {
-  
-
   return (
     <>
-      <Navbar/>
-      <Hero/>
-      <Features/>
-      <MainHeader/>
-      <Header/>
-     <BrowserRouter>
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          style: {
+            borderRadius: '20px',
+            background: '#333',
+            color: '#fff',
+          },
+          success: {
+            theme: {
+              primary: '#65A0FB',
+            },
+          },
+         
+        }}
+        limit={1} 
+      />
 
-     <Routes>
-
-     <Route path="/" element={<TrainModel />}>
-     
-
-
-
-     </Route>
-  
-
-
-
-
-  
-   
-
-{/* <AnimatedListDemo/> */}
-
-
-
-</Routes>
-
-</BrowserRouter>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<RealMain />} />
+          <Route path="/trainmodel" element={<TrainModel />} />
+          <Route path ="/transformData" element={<dataTransfer/>}/> 
+        </Routes>
+      </BrowserRouter>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
