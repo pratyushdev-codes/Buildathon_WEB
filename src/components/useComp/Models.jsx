@@ -1,12 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import dataTransfer from './dataTransfer';
+import { color } from 'framer-motion';
 const Models = () => {
-  const navigate = useNavigate();
 
-  const handleUploadDatasetClick = () => {
-    navigate('/dataTransfer'); // Replace '/uploadDataset' with the path of the upload document page
-  };
+
+
 
   return (
     <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
@@ -36,8 +36,21 @@ const Models = () => {
               boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
               color: "#000"
             }}>
-            <i className="fa-solid fa-cloud-arrow-up"></i> &nbsp;Upload Dataset
+            <i className="fa-solid fa-cloud-arrow-up" style={{color:"#036EFD"}}></i> &nbsp;Upload Dataset
           </button>
+
+          <Link to="/transformData">
+            <button className="btn mx-2" style={{
+              borderRadius: "20px",
+              background: "white",
+              backdropFilter: "blur(10px)",
+              border: "1px solid rgba(255, 255, 255, 0.3)",
+              boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+              color: "#000"
+            }}>
+              <i className="fa-solid fa-file-zipper" style={{ color: "#036EFD" }}></i> &nbsp;Data Transformation
+            </button>
+          </Link>
 
           <button className="btn mx-2" style={{
             borderRadius: "20px",
@@ -46,11 +59,8 @@ const Models = () => {
             border: "1px solid rgba(255, 255, 255, 0.3)",
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
             color: "#000"
-          }} 
-          onClick={handleUploadDatasetClick}>
-         
-            <i className="fa-solid fa-file-zipper"></i> &nbsp;Data Transformation
-      
+          }}>
+            <i className="fa-solid fa-microchip"style={{color:"#036EFD"}}></i> &nbsp;Train Models
           </button>
 
           <button className="btn mx-2" style={{
@@ -61,18 +71,7 @@ const Models = () => {
             boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
             color: "#000"
           }}>
-            <i className="fa-solid fa-microchip"></i> &nbsp;Train Models
-          </button>
-
-          <button className="btn mx-2" style={{
-            borderRadius: "20px",
-            background: "white",
-            backdropFilter: "blur(10px)",
-            border: "1px solid rgba(255, 255, 255, 0.3)",
-            boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-            color: "#000"
-          }}>
-            <i className="fa-solid fa-download"></i> &nbsp;Download
+            <i className="fa-solid fa-download" style={{color:"#036EFD"}}></i> &nbsp;Download
           </button>
         </div>
       </nav>
