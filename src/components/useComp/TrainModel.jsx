@@ -40,6 +40,14 @@ export const TrainModel = () => {
         }
         setBody(bodyString);
         setShowButtons(true);
+        document.cookie =
+      "tableHead=" +
+      tableHeader 
+      ;
+      document.cookie =
+      "tableBody=" +
+      tableBody 
+      ;
       })
       .catch((err) => {
         toast.error("Error Uploading File");
@@ -67,7 +75,11 @@ export const TrainModel = () => {
         console.log(err);
       });
   };
-  document.cookie={tablehead}
+  
+
+  
+  
+
   return (
     <div className="relative bg-black h-auto w-screen">
       <div
@@ -101,14 +113,7 @@ export const TrainModel = () => {
               <div className="mb-3">
                 <br />
                 <br />
-                <label
-                  htmlFor="exampleInputEmail1"
-                  className="form-label"
-                  style={{ fontSize: "30px", fontWeight: "bolder" }}
-                >
-                  <i className="fa-solid fa-microchip"></i> &nbsp;Upload your
-                  Dataset file
-                </label>
+                <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}> <i className="fa-solid fa-microchip" style={{ color: "#036EFD" }}></i> &nbsp;  Upload your Dataset file</h1><br/>
                 <br />
                 <br />
                 <br />
@@ -125,7 +130,7 @@ export const TrainModel = () => {
                   />
                 </center>
                 <div id="emailHelp" className="form-text">
-                  Upload your file to train your model &nbsp;
+                  Upload .csv, ,xlsx, ,xls files.&nbsp;
                   <i className="fa-solid fa-file-import"></i>
                 </div>
                 <br />
@@ -179,12 +184,13 @@ export const TrainModel = () => {
             </div>
           </div>
           <div
-            className="table-primary bg-yellow-200 rounded-lg shadow-lg p-5 "
+            className="table-primary rounded-lg shadow-lg p-5 "
             style={{
               flex: 1,
               marginLeft: "20px",
-              backgroundColor: "#FCD571",
+              backgroundColor: "whitesmoke",
               borderRadius: "20px",
+              backgroundImage:"url('/images/grad1 copy.png')" ,
             }}
           >
             <br />
@@ -196,14 +202,8 @@ export const TrainModel = () => {
                 textAlign: "center",
               }}
             >
-              <i
-                className="fa-solid fa-database"
-                style={{ color: "#EC7A6F" }}
-              ></i>
-              &nbsp;&nbsp;{" "}
-              <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}>
-                Uploaded Dataset
-              </h1>
+              
+              <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}> <i className="fa-solid fa-file-csv" style={{ color: "#036EFD" }}></i> &nbsp; Uploaded Dataset</h1><br/>
             </div>
             <br />
             <table

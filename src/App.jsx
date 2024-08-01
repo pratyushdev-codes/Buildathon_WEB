@@ -31,6 +31,7 @@ function App() {
           <Route path="/" element={<RealMain />} />
           <Route path="/trainmodel" element={<TrainModel />} />
           <Route path="/transformData" element={<DataTransfer />} />
+          
         </Routes>
       </BrowserRouter>
     </>

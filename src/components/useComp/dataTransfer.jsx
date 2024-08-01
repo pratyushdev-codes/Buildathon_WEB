@@ -1,8 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import InnerNav from './InnerNav';
 import Models from './Models';
 
 const DataTransfer = () => {
+  const [tableHead, setTableHead]= useState("");
+  const [tableData, setTableData]= useState("");
+  document.addEventListener("DOMContentLoaded", ()=>{
+    setTableHead(getCookie("tableHead"));
+    setTableData(getCookie("tableBody"));
+  })
+
+  function getCookie(cookieName) {
+    var cookiesArray = document.cookie.split("; ");
+    for (var i = 0; i < cookiesArray.length; i++) {
+      var cookie = cookiesArray[i];
+      var cookieParts = cookie.split("=");
+      if (cookieParts[0] === cookieName) {
+        return cookieParts[1];
+      }
+    }
+    return null;
+  }
   return (
     <div className="relative bg-black h-auto w-screen">
       <InnerNav />
@@ -28,66 +46,61 @@ const DataTransfer = () => {
 
           {/* Clean columns */}
           <br />
+          <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}> <i className="fa-solid fa-file-zipper" style={{ color: "#036EFD" }}></i> &nbsp; Data Transformation</h1><br/><br/>
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-broom"></i> Clean Coloumns </h1>
-            <br />
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-broom" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Clean Coloumns </h1>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
             <i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Clean Coloumns
             </button>
           </form>
           {/* Remove Duplicates , buttons */}
 
           <br />
+          <br />
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-eraser"></i> Remove Duplicates </h1>
-            <br />
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-eraser" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Remove Duplicates </h1>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
             <i class="fa-solid fa-arrow-up-from-bracket"></i>&nbsp; Remove Duplicates
             </button>
           </form>
-
-
+          <br />
           <br />
 
           {/* Check missing value */}
 
           <br />
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}> <i class="fa-solid fa-circle-check"></i> &nbsp;Check Missing Values</h1>
-            <br />
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}> <i class="fa-solid fa-circle-check" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Check Missing Values</h1>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
             <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Check Missing Values
             </button>
           </form>
-
+          <br />
           <br />
           {/* Handle non numeric (fill) */}
 
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-gears"></i> &nbsp; Handle non numeric (fill)</h1>
-            <br />
-            <div class="mb-3">
-              
-              <input type="text" class="form-control" id="exampleInputPassword1" placeholder='Enter string value' />
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-gears" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp; Handle non numeric (fill)</h1>
+            <div class="mb-3"> 
+              <input type="text" class="form-control" id="exampleInputPassword1" placeholder='Enter string value' style={{borderRadius:"20px"}} />
             </div>
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
             <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Handle non numeric (fill)
             </button>
           </form>
-
-
+          <br />
           <br />
           {/* Handle non numeric drop  */}
 
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-angle-down"></i> &nbsp; Handle non numeric drop </h1>
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-angle-down" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp; Handle non numeric drop </h1>
             <br />
             <div class="mb-3">
               
              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter String Value"  style={{borderRadius:"20px"}}/>
             </div>
             <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <button class="btn btn-secondary dropdown-toggle my-2" type="button" data-bs-toggle="dropdown" aria-expanded="false" style={{borderRadius:"20px", width:"40vh"}}>
                 Dropdown button
               </button>
               <ul class="dropdown-menu">
@@ -96,89 +109,80 @@ const DataTransfer = () => {
                 <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </div>
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
              <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Handle non numeric drop
-
             </button>
           </form>
           <br />
+          <br />
           {/* Handle numeric data median  */}
+
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}> <i class="fa-solid fa-bars"></i> &nbsp;Handle numeric data median </h1>
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}> <i class="fa-solid fa-bars" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Handle numeric data median </h1>
             <br />
             <div class="mb-3">
               
              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter String Value"  style={{borderRadius:"20px"}}/>
             </div>
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
              <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Handle numeric data median
             </button>
           </form>
-
+          <br />
           <br />
 
           {/* Convert to numeric  */}
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-wand-magic-sparkles"></i> &nbsp;Convert to numeric </h1>
-
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-wand-magic-sparkles" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Convert to numeric </h1>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
              <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Covert to numeric
-
             </button>
           </form>
           <br />
-
+          <br />
           {/* Normalize date coloumn  */}
-          <form> <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-bolt"></i>Normalize date coloumn </h1>
+          <form>  <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-bolt" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Normalize date coloumn </h1>
             <div class="mb-3">
-              
             <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter String Value"  style={{borderRadius:"20px"}}/>
             </div>
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
-             <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Normalize date coloumn
-
-            </button></form>
-
-
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+             <i class="fa-solid fa-arrow-up-from-bracket"></i> Normalize date coloumn
+            </button>
+            </form>
           <br />
+          <br />
+
           {/* One hot encoding */}
-          <form> <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-fire"></i> &nbsp;One hot encoding</h1>
+          <form>  <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-fire" style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;One hot encoding</h1>
             <div class="mb-3">
-              
              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter String Value"  style={{borderRadius:"20px"}}/>
             </div>
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
              <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; &nbsp; Normalize date coloumn
-
-            </button></form>
-
+            </button>
+            </form>
+          <br />
           <br />
           {/* Get  column data types  */}
+
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }} ><i class="fa-solid fa-folder-open"></i>Get coloumn data types </h1>
+          <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-folder-open "style={{color:"#036EFD", fontSize:"20px"}}></i> &nbsp;Get coloumn data types </h1>
 
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
              <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp; Get coloumn data types
-
             </button>
           </form>
-
-
+          <br />  <br />
           {/* Drop rows without target  */}
           <form>
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}><i class="fa-solid fa-layer-group"></i>Drop rows without target </h1>
+             <h1 style={{ fontSize: "25px", fontWeight: "bolder", color:"grey" }}><i class="fa-solid fa-layer-group" style={{color:"#036EFD", fontSize:"20px"}}></i>&nbsp;&nbsp;Drop rows without target </h1>
             <div class="mb-3">
-              
              <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Enter String Value"  style={{borderRadius:"20px"}}/>
             </div>
-
-            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px", background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
+            <button type="submit" className="btn btn-primary" style={{ borderRadius: "20px",width:"40vh" ,background: "radial-gradient(circle, rgba(157,86,224,1) 0%, rgba(253,130,85,1) 100%)", color: "white", borderColor: "#EFF2FF", boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)", }}>
              <i class="fa-solid fa-arrow-up-from-bracket"></i> &nbsp;Drop rows without target
-
             </button>
           </form>
-
-
         </div>
 
 
@@ -186,14 +190,15 @@ const DataTransfer = () => {
 
         {/* Table div Starts Here */}
         <div
-          className="table-primary bg-yellow-200 rounded-lg shadow-lg p-5"
-          style={{
-            flex: 1,
-            marginLeft: "20px",
-            backgroundColor: "#FCD571",
-            borderRadius: "20px",
-          }}
-        >
+            className="table-primary rounded-lg shadow-lg p-5 "
+            style={{
+              flex: 1,
+              marginLeft: "20px",
+              backgroundColor: "whitesmoke",
+              borderRadius: "20px",
+              backgroundImage:"url('/images/grad1 copy.png')" ,
+            }}
+          >
           <br />
           <div
             style={{
@@ -203,54 +208,21 @@ const DataTransfer = () => {
               textAlign: "center",
             }}
           >
-            <i
-              className="fa-solid fa-database"
-              style={{ color: "#EC7A6F" }}
-            ></i>
-            &nbsp;&nbsp;{" "}
-            <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}>
-              Uploaded Dataset
-            </h1>
+           
+           <h1 style={{ fontSize: "30px", fontWeight: "bolder" }}> <i className="fa-solid fa-file-csv" style={{ color: "#036EFD" }}></i> &nbsp; Uploaded Dataset</h1><br/>
           </div>
           <br />
           <table
-            className="table"
-            style={{
-              backgroundColor: "#FCD571",
-              width: "100%",
-              borderRadius: "10px",
-            }}
-          >
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th scope="row" style={{ backgroundColor: "yellow" }}>
-                  1
-                </th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td colSpan="2">Larry the Bird</td>
-                <td>@twitter</td>
-              </tr>
-            </tbody>
-          </table>
+              className="table overflow-scroll"
+              style={{
+                backgroundColor: "#FCD571",
+                width: "100%",
+                borderRadius: "10px",
+              }}
+            >
+              <thead className="font-bold" dangerouslySetInnerHTML={{ __html: tableHead}}></thead>
+              <tbody dangerouslySetInnerHTML={{ __html: tableData }}></tbody>
+            </table>
         </div>
       </div>
 
